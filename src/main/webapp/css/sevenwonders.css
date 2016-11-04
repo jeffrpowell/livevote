@@ -1,0 +1,181 @@
+.card > img, .wonder > img, .wonderstage > img {
+	width: 100%;
+	border-radius: 6px;
+}
+
+.card > img.playing {
+	border: 1px solid #9ecaed;
+    outline: none;
+    box-shadow: 0 0 34px #9ecaed;
+}
+
+.card.card-stack {
+	position: relative;
+	top: -95px;
+	margin-bottom: -95px;
+}
+
+.fake-link {
+	cursor: pointer;
+}
+
+#selectWonderModal .modal-body {
+	height: 570px;
+}
+
+#lobbyWonderSelect .lobbyWonder > img{
+	width: 100%;
+	border-radius: 6px;
+}
+
+#lobbyWonderSelect .lobbyWonder {
+	margin-bottom: -205px;
+	cursor: pointer;
+	-webkit-transition-property: margin-bottom;
+	-webkit-transition-duration: 0.5s;
+	-o-transition-property: margin-bottom;
+	-o-transition-duration: 0.5s;
+	-moz-transition-property: margin-bottom;
+	-moz-transition-duration: 0.5s;
+	transition-property: margin-bottom;
+	transition-duration: 0.5s;
+}
+
+#lobbyWonderSelect .lobbyWonder:hover {
+	margin-bottom: 0px;
+}
+
+#hand {
+	position: fixed;
+	left: 195px;
+	width: 1050px;
+	z-index: 101;
+}
+
+#hand .card{
+	display: inline-table;
+	width: 100px;
+	height: 150px;
+	margin-right: 20px;
+	vertical-align: top;
+	-webkit-transition-property: width, height;
+	-webkit-transition-duration: 0.5s;
+	-o-transition-property: width, height;
+	-o-transition-duration: 0.5s;
+	-moz-transition-property: width, height;
+	-moz-transition-duration: 0.5s;
+	transition-property: width, height;
+	transition-duration: 0.5s;
+}
+
+#hand .card:hover{
+	width: 240px;
+	height: 320px;
+}
+
+#inGameChat {
+	position: fixed;
+	bottom: -287px;
+	left: 0px;
+	z-index: 101;
+	-webkit-transition-property: bottom;
+	-webkit-transition-duration: 0.5s;
+	-o-transition-property: bottom;
+	-o-transition-duration: 0.5s;
+	-moz-transition-property: bottom;
+	-moz-transition-duration: 0.5s;
+	transition-property: bottom;
+	transition-duration: 0.5s;
+	transition-timing-function: ease-out;
+}
+
+#inGameChat .panel-heading {
+	cursor: pointer;
+}
+
+#inGameChat.panel-focused {
+	bottom: -21px;
+}
+
+#inGameChat textarea {
+	resize: none;
+}
+
+#discardSelect .card{
+	display: inline-table;
+	width: 192px;
+	height: 256px;
+	margin-right: -178px;
+	-webkit-transition-property: margin-right;
+	-webkit-transition-duration: 0.5s;
+	-o-transition-property: margin-right;
+	-o-transition-duration: 0.5s;
+	-moz-transition-property: margin-right;
+	-moz-transition-duration: 0.5s;
+	transition-property: margin-right;
+	transition-duration: 0.5s;
+}
+
+#discardSelect .card:hover{
+	margin-right: 0px;
+}
+
+.wonderRow {
+	margin-top: 160px;
+}
+
+.wonder {
+	position: relative;
+	z-index: 2;
+}
+
+.wonderstage {
+	position: relative;
+	z-index: 1;
+	width: 124px;
+}
+
+.wonderstage.stage-1-of-2 {
+	left:176px;
+	top: -119px;
+}
+
+.wonderstage.stage-2-of-2 {
+	left:322px; 
+	top: -305px;
+}
+
+.wonderstage.stage-1-of-3 {
+	left:35px;
+	top: -119px;
+}
+
+.wonderstage.stage-2-of-3 {
+	left:177px; 
+	top: -305px;
+}
+
+.wonderstage.stage-3-of-3 {
+	left:321px; 
+	top: -491px;
+}
+
+.wonderstage.stage-1-of-4 {
+	left:-12px;
+	top: -119px;
+}
+
+.wonderstage.stage-2-of-4 {
+	left:116px; 
+	top: -305px;
+}
+
+.wonderstage.stage-3-of-4 {
+	left:245px; 
+	top: -492px;
+}
+
+.wonderstage.stage-4-of-4 {
+	left:374px; 
+	top: -678px;
+}
