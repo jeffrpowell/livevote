@@ -3,10 +3,10 @@ package com.jeffrpowell.livevote;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.jeffrpowell.livevote.sockets.SurveyResultsMessage;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.nio.charset.Charset;
+import java.util.List;
 import java.util.Map;
 
 public class JsonUtils {
@@ -17,10 +17,10 @@ public class JsonUtils {
 		return gson.fromJson(msgJson, new TypeToken<Map<String, Object>>(){}.getType());
 	}
 	
-	public static SurveyResultsMessage parseVotes(String msgJson)
+	public static List<String> parseVotes(String msgJson)
 	{
 		Gson gson = new Gson();
-		return gson.fromJson(msgJson, new TypeToken<SurveyResultsMessage>(){}.getType());
+		return gson.fromJson(msgJson, new TypeToken<List<String>>(){}.getType());
 	}
 	
 	public static <E> String exposedObjectToJson(E obj)

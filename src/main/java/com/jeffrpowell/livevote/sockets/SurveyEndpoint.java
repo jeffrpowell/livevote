@@ -1,10 +1,13 @@
 package com.jeffrpowell.livevote.sockets;
 
 import com.jeffrpowell.livevote.JsonUtils;
+import com.jeffrpowell.livevote.Survey;
 import com.jeffrpowell.livevote.SurveyHandler;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 import javax.websocket.OnClose;
 import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
@@ -26,6 +29,7 @@ public class SurveyEndpoint{
 	public void onOpen(Session session)
 	{
 		sessions.put(session.getId(), session);
+		session.getAsyncRemote().sendText(JsonUtils.objectToJson(surveyHandler.getOptions()));
 	}
 	
 	@OnClose
@@ -38,7 +42,9 @@ public class SurveyEndpoint{
 	public void onMessage(Session session, String msg, boolean last)
 	{
 		System.out.println("Message: " + msg);
-		SurveyResultsMessage votes = JsonUtils.parseVotes(msg);
-		surveyHandler.castVote(votes.getResults().keySet());
+		Set<Survey.Options> votes = JsonUtils.parseVotes(msg).stream()
+			.map(Survey.Options::fromText)
+			.collect(Collectors.toSet());
+		surveyHandler.castVote(votes);
 	}
 }

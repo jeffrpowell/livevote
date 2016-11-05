@@ -16,25 +16,25 @@ import javax.websocket.server.ServerEndpoint;
 @ServerEndpoint("/results")
 public class ResultsEndpoint implements SurveyListener{
 	private final SurveyHandler surveyHandler;
-	private final Map<String, Session> sessions;
+	private static final Map<String, Session> SESSIONS = Collections.synchronizedMap(new HashMap<String, Session>());
 	
 	public ResultsEndpoint()
 	{
 		this.surveyHandler = SurveyHandler.getInstance();
 		surveyHandler.registerSurveyListener(this);
-		this.sessions = Collections.synchronizedMap(new HashMap<String, Session>());
 	}
 	
 	@OnOpen
 	public void onOpen(Session session)
 	{
-		sessions.put(session.getId(), session);
+		SESSIONS.put(session.getId(), session);
+		surveyHandler.newSessionConnected();
 	}
 	
 	@OnClose
 	public void onClose(Session session)
 	{
-		sessions.remove(session.getId());
+		SESSIONS.remove(session.getId());
 	}
 	
 	@OnMessage
@@ -45,9 +45,9 @@ public class ResultsEndpoint implements SurveyListener{
 
 	@Override
 	public void updateResults(Map<Survey.Options, Integer> results){
-		SurveyResultsMessage resultsMessage = new SurveyResultsMessage(results);
-		for (Session session : sessions.values()){
-			session.getAsyncRemote().sendText(JsonUtils.exposedObjectToJson(resultsMessage));
+		SurveyResultsMessage resultMessage = new SurveyResultsMessage(results);
+		for (Session session : SESSIONS.values()){
+			session.getAsyncRemote().sendText(JsonUtils.exposedObjectToJson(resultMessage));
 		}
 	}
 }

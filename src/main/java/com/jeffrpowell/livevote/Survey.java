@@ -6,7 +6,14 @@ import java.util.Set;
 
 public class Survey {
 	public static enum Options {
-		ONE("1"), TWO("2"), THREE("3");
+		SPIRITUAL("How can I become spriritually self-reliant?"),
+		ANSWERS("How can I find answers to my own gospel questions?"),
+		FAITH("How can I overcome doubt with faith?"),
+		DECISIONS("How can I learn to make my own decisions?"),
+		GOALS("How can setting goals help me become self-reliant?"),
+		FINANCIAL("How can I prepare to be financially self-reliant?"),
+		WITNESS("How can I stand as a witness of God?"),
+		;
 		public final String text;
 		
 		Options(String text)

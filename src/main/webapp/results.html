@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Live Vote</title>
+		<title>Live Vote - Results</title>
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,9 +14,8 @@
 		<![endif]-->
 	</head>
 	<body style='padding: 10px;'>
-		<div id="options">
-		</div>
-		<button type='button' id='castVote' class='btn btn-primary'>Cast Vote</button>
+		<div id='container'></div>
+		<button type='button' id="reset" class='btn btn-primary' style='float: right'>Reset</button>
 		<br><br>
 		<p><a href="https://www.lds.org/youth/learn/ss/self-reliance/spiritually?lang=eng">How can I become spriritually self-reliant?"</a></p>
 		<p><a href="https://www.lds.org/youth/learn/ss/self-reliance/answers?lang=eng">How can I find answers to my own gospel questions?</a></p>
@@ -27,6 +26,7 @@
 		<p><a href="https://www.lds.org/youth/learn/ss/self-reliance/witness?lang=eng">How can I stand as a witness of God?</a></p>
 		<script type='text/javascript' src="js/jquery-2.1.4.min.js"></script>
 		<script type='text/javascript' src="js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="js/index.js"></script>
+		<script type='text/javascript' src="js/highcharts.js"></script>
+		<script type="text/javascript" src="js/results.js"></script>
 	</body>
 </html>

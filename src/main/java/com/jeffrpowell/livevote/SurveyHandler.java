@@ -1,8 +1,10 @@
 package com.jeffrpowell.livevote;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class SurveyHandler {
 	private Survey survey;
@@ -30,6 +32,18 @@ public class SurveyHandler {
 		listeners.add(listener);
 	}
 	
+	public void newSessionConnected()
+	{
+		sendResults();
+	}
+
+	public List<String> getOptions()
+	{
+		return Arrays.asList(Survey.Options.values()).stream()
+			.map(option -> option.text)
+			.collect(Collectors.toList());
+	}
+
 	public void castVote(Set<Survey.Options> votes)
 	{
 		survey.castVote(votes);

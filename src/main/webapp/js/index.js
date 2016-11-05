@@ -1,43 +1,39 @@
 jQuery(function($){
 		$(document).ready(function ($) {
-				var wsUri = "ws://" + document.location.host + "/livevote/survey";
+				var wsUri = "ws://" + document.location.host + "/LiveVote/survey";
 				var websocket = new WebSocket(wsUri);
+				var options = [];
 				
 				function sendMessage(data){
 						websocket.send(JSON.stringify(data));
 				}
 				
-				websocket.onerror = function (evt) {
-						console.log("error");
-						console.log(evt);
-				};
-
-				websocket.onclose = function (close) {
-						console.log("closed");
-						console.log(close);
-				};
-
 				websocket.onopen = function (evt) {
-						console.log("open");
 				};
 
 				websocket.onmessage = function (evt) {
-					var msg = JSON.parse(decodeURIComponent(evt.data));
-					console.log(msg);
+					options = JSON.parse(decodeURIComponent(evt.data));
+					$.each(options, function(index, option){
+							$('#options').append(
+									"<div class='checkbox'>"+
+										"<label>"+
+											"<input type='checkbox' name='votes' value='"+index+"'>"+
+											option+
+										"</label>"+
+									"</div>"
+							);
+					});
 				};
 				
-				$('#btnEnter').click(function(){
-						sendMessage({
-								results: [
-										{
-												option: "1",
-												votes: 1
-										},
-										{
-												option: "2",
-												votes: 1
-										}
-								]
+				$('#castVote').click(function(){
+						var selected = [];
+						$('#options input:checked').each(function(){
+								var input = $(this);
+								selected.push(options[input.attr('value')]);
+						});
+						sendMessage(selected);
+						$('#options input').each(function(){
+								$(this).prop('checked', false);
 						});
 				});
 		});
