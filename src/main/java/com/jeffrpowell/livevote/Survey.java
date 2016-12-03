@@ -6,13 +6,13 @@ import java.util.Set;
 
 public class Survey {
 	public static enum Options {
-		SPIRITUAL("How can I become spriritually self-reliant?"),
-		ANSWERS("How can I find answers to my own gospel questions?"),
-		FAITH("How can I overcome doubt with faith?"),
-		DECISIONS("How can I learn to make my own decisions?"),
-		GOALS("How can setting goals help me become self-reliant?"),
-		FINANCIAL("How can I prepare to be financially self-reliant?"),
-		WITNESS("How can I stand as a witness of God?"),
+		SERVE("How can I learn to serve more effectively in the Church?"),
+		LEADER ("How can I become a better leader?"),
+		TEACHER("How can I become a better teacher?"),
+		SHARE("What are effective ways to share the gospel with others?"),
+		SYMBOLS("How can I understand the symbols used to teach about the Second Coming?"),
+		PREPARE("What can I learn from the scriptures to help me prepare for the Second Coming?"),
+		TESTIMONY("How can I share my testimony that Jesus Christ is the Son of God?")
 		;
 		public final String text;
 		

@@ -18,7 +18,6 @@ jQuery(function($){
 				};
 
 				websocket.onopen = function (evt) {
-						console.log("open");
 				};
 
 				websocket.onmessage = function (evt) {
@@ -34,7 +33,7 @@ jQuery(function($){
 								text: 'Survey Results'
 						},
 						xAxis: {
-								categories: ["Spiritually self-reliant", "Answers to questions", "Faith over doubt", "My own decisions", "Setting goals", "Financially self-reliant", "Stand as a witness"]
+								categories: ["Serve in the church", "Leader", "Teacher", "Share the gospel", "Symbols of 2nd Coming", "Prepare for 2nd Coming", "Testimony of Son of God"]
 						},
 						yAxis: {
 								min: 0
