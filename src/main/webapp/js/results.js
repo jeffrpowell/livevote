@@ -33,7 +33,7 @@ jQuery(function($){
 								text: 'Survey Results'
 						},
 						xAxis: {
-								categories: ["Serve in the church", "Leader", "Teacher", "Share the gospel", "Symbols of 2nd Coming", "Prepare for 2nd Coming", "Testimony of Son of God"]
+								categories: ["Learn", "Scripture", "Reverence", "Testimony", "Follow Spirit"]
 						},
 						yAxis: {
 								min: 0
