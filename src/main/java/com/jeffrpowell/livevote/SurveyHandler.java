@@ -1,10 +1,11 @@
 package com.jeffrpowell.livevote;
 
+import com.jeffrpowell.livevote.model.Survey;
+import com.jeffrpowell.livevote.model.SurveyOption;
+import com.jeffrpowell.livevote.surveys.Survey05May;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 public class SurveyHandler {
 	private Survey survey;
@@ -17,13 +18,13 @@ public class SurveyHandler {
 	}
 	
 	private SurveyHandler() {
-		survey = new Survey();
+		survey = new Survey05May();
 		listeners = new ArrayList<>();
 	}
 	
 	public void resetSurvey()
 	{
-		survey = new Survey();
+		survey = new Survey05May();
 		sendResults();
 	}
 	
@@ -37,14 +38,12 @@ public class SurveyHandler {
 		sendResults();
 	}
 
-	public List<String> getOptions()
+	public Set<SurveyOption> getOptions()
 	{
-		return Arrays.asList(Survey.Options.values()).stream()
-			.map(option -> option.text)
-			.collect(Collectors.toList());
+		return survey.getOptions();
 	}
 
-	public void castVote(Set<Survey.Options> votes)
+	public void castVote(List<SurveyOption> votes)
 	{
 		survey.castVote(votes);
 		sendResults();

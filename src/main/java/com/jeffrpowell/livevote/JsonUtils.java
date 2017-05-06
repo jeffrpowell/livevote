@@ -3,6 +3,7 @@ package com.jeffrpowell.livevote;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.jeffrpowell.livevote.model.SurveyOption;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.nio.charset.Charset;
@@ -17,10 +18,10 @@ public class JsonUtils {
 		return gson.fromJson(msgJson, new TypeToken<Map<String, Object>>(){}.getType());
 	}
 	
-	public static List<String> parseVotes(String msgJson)
+	public static List<SurveyOption> parseVotes(String msgJson)
 	{
 		Gson gson = new Gson();
-		return gson.fromJson(msgJson, new TypeToken<List<String>>(){}.getType());
+		return gson.fromJson(msgJson, new TypeToken<List<SurveyOption>>(){}.getType());
 	}
 	
 	public static <E> String exposedObjectToJson(E obj)

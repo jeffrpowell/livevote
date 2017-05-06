@@ -18,9 +18,12 @@ jQuery(function($){
 									"<div class='checkbox'>"+
 										"<label>"+
 											"<input type='checkbox' name='votes' value='"+index+"'>"+
-											option+
+											option.prompt+
 										"</label>"+
 									"</div>"
+							);
+							$('#lessonLinks').append(
+									'<p><a target="_blank" href="'+option.url+'">'+option.prompt+'</a></p>'
 							);
 					});
 				};

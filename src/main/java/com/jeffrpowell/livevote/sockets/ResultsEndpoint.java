@@ -1,9 +1,9 @@
 package com.jeffrpowell.livevote.sockets;
 
 import com.jeffrpowell.livevote.JsonUtils;
-import com.jeffrpowell.livevote.Survey;
 import com.jeffrpowell.livevote.SurveyHandler;
 import com.jeffrpowell.livevote.SurveyListener;
+import com.jeffrpowell.livevote.model.SurveyOption;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -44,7 +44,7 @@ public class ResultsEndpoint implements SurveyListener{
 	}
 
 	@Override
-	public void updateResults(Map<Survey.Options, Integer> results){
+	public void updateResults(Map<SurveyOption, Integer> results){
 		SurveyResultsMessage resultMessage = new SurveyResultsMessage(results);
 		for (Session session : SESSIONS.values()){
 			session.getAsyncRemote().sendText(JsonUtils.exposedObjectToJson(resultMessage));
