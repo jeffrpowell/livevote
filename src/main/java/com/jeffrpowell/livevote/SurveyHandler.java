@@ -2,7 +2,7 @@ package com.jeffrpowell.livevote;
 
 import com.jeffrpowell.livevote.model.Survey;
 import com.jeffrpowell.livevote.model.SurveyOption;
-import com.jeffrpowell.livevote.surveys.Survey05May;
+import com.jeffrpowell.livevote.surveys.Survey06June;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -18,14 +18,14 @@ public class SurveyHandler {
 	}
 	
 	private SurveyHandler() {
-		survey = new Survey05May();
-		listeners = new ArrayList<>();
+	    survey = new Survey06June();
+	    listeners = new ArrayList<>();
 	}
 	
 	public void resetSurvey()
 	{
-		survey = new Survey05May();
-		sendResults();
+	    survey = new Survey06June();
+	    sendResults();
 	}
 	
 	public void registerSurveyListener(SurveyListener listener)
